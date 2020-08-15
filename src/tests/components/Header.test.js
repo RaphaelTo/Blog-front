@@ -8,7 +8,7 @@ describe('component Header', () => {
     test('component exist', () => {
         const component = render(<Header/>);
         expect(component).not.toBeNull();
-    })
+    });
 
     test('header get li about and title', () => {
         const { getAllByTestId, debug } = render(<Header/>);
@@ -17,5 +17,5 @@ describe('component Header', () => {
         const linkElement = getAllByTestId('link-header').map(link => link.textContent);
 
         expect(linkElement).toEqual(shouldHaveLink);
-    })
+    });
 })
