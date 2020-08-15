@@ -2,8 +2,14 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 const Category = ({items}) => {
+    const itemCat = items.map((result, key) => (
+        <li key={key} data-testid='name-categories'>{result.name}</li>
+    ));
+
     return (
-        <h1>Halo Category</h1>
+        <ul>
+            {itemCat}
+        </ul>
     )
 };
 
