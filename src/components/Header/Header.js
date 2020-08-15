@@ -1,10 +1,10 @@
 import React from "react";
 import { Link, BrowserRouter as Router } from 'react-router-dom';
-
+import './Header.css';
 const Header = () => {
     return (
         <Router>
-            <div>
+            <header className="nav-link">
                 <nav>
                     <ul>
                         <li>
@@ -15,7 +15,7 @@ const Header = () => {
                         </li>
                     </ul>
                 </nav>
-            </div>
+            </header>
         </Router>
     )
 };
