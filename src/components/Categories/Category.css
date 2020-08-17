@@ -1,0 +1,19 @@
+.cat-nav ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 50px 0px;
+}
+
+.cat-nav li {
+    padding: 10px;
+    border: 1px solid #EA611F;
+    border-radius: 8px;
+    margin: 0px 10px;
+}
+
+.cat-nav li:hover {
+    cursor: pointer;
+    background-color: #EA611F;
+}
+

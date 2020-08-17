@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import './Category.css';
 
 const Category = ({items}) => {
     const itemCat = items.map((result, key) => (
@@ -7,9 +8,11 @@ const Category = ({items}) => {
     ));
 
     return (
-        <ul>
-            {itemCat}
-        </ul>
+        <div className="cat-nav">
+            <ul>
+                {itemCat}
+            </ul>
+        </div>
     )
 };
 
