@@ -1,0 +1,21 @@
+.containt-article {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    margin: 10px;
+}
+
+.article-item {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    border: 1px solid #EA611F;
+    border-radius: 8px;
+    margin: 5px;
+    padding: 15px;
+}
+
+.article-item:hover {
+    background-color: #EA611F;
+}
