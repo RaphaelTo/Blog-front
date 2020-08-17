@@ -12,7 +12,7 @@ const Categories = () => {
 
     useEffect(() => {
         getCategoriesApi()
-    }, []);
+    }, [getCategoriesApi]);
 
     return (
         <>
