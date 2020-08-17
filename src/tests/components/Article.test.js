@@ -16,5 +16,15 @@ describe('component Article', () => {
         const article = render(<Article/>);
 
         expect(article).not.toBeNull();
+    });
+
+    test('component return "O article trouvé"', () => {
+        const mockArticleItem = [];
+        axiosMock.get.mockResolvedValue(mockArticleItem);
+        const { getByTestId } = render(<Article/>);
+
+        const getZeroArticle = getByTestId('zero-article');
+
+        expect(getZeroArticle).toHaveTextContent('0 article trouvé');
     })
 });
