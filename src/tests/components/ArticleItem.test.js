@@ -15,7 +15,6 @@ describe('component ArticleItem', () => {
 
    test('component return article', async () => {
        const mockItem = [
-
            {
                "_id": "5f22ef0ff93239294cf6c6f6",
                "Category": "5f295cd2c10d1e0622a013e7",
