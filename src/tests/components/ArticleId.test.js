@@ -92,5 +92,25 @@ describe('component ArticleId', () => {
         expect(getTitle).toHaveTextContent('A');
         expect(getContent).toHaveTextContent('aaa');
         expect(getDate).toHaveTextContent('30-7-2020')
+    });
+
+    test('return an error 404 if article not found', async () => {
+        const mockReturnAxios ={
+            data : {
+                type: 'error',
+            }
+        };
+        axiosMock.get.mockRejectedValue(mockReturnAxios);
+
+        const { getByTestId, debug } = render(<ArticleId/>);
+
+        const getLoading = getByTestId('loading-article');
+        expect(getLoading).toHaveTextContent('Loading ...');
+
+        await waitForElement(() => getByTestId('loading-error'));
+        expect(axiosMock.get).toHaveBeenCalled();
+
+        const getError = getByTestId('error-text');
+        expect(getError).toHaveTextContent("Ooops tu t'es perdu");
     })
 });
