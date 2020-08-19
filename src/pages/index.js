@@ -1,7 +1,14 @@
 import React from "react";
+import Header from "../components/Header/Header";
+import Categories from "../components/Categories/Categories";
+import Article from "../components/Articles/Article";
 
 const Home = () => (
-    <h1>Hello Accueil</h1>
+    <>
+        <Header/>
+        <Categories/>
+        <Article/>
+    </>
 );
 
 export default Home;
