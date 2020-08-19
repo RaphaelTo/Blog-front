@@ -10,5 +10,11 @@ describe('component Error', () => {
         const err = render(<Error />);
         expect(err).not.toBeNull();
     });
+
+    test('component return "oops tu t\'es perdu"', () => {
+        const { getByTestId } = render(<Error/>);
+        const error = getByTestId('error-text');
+        expect(error).toHaveTextContent('Ooops tu t\'es perdu');
+    })
 });
 
