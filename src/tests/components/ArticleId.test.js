@@ -14,4 +14,10 @@ describe('component ArticleId', () => {
         const art = render(<ArticleId />);
         expect(art).not.toBeNull();
     });
+
+    test('return a loading before to return article', () => {
+        const {getByTestId} = render(<ArticleId />);
+        const getLoading = getByTestId('loading-article');
+        expect(getLoading).toHaveTextContent('Loading ...')
+    })
 });
