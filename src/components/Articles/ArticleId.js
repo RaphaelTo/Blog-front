@@ -1,6 +1,7 @@
 import React, {useEffect, useCallback, useState} from "react";
 import axios from 'axios';
 import {useParams} from 'react-router-dom';
+import Error from "../Error/Error";
 
 const ArticleId = () => {
 
@@ -13,9 +14,13 @@ const ArticleId = () => {
     };
 
     const getArticleById = useCallback(async () => {
-        const response = await axios.get(`http://localhost:30003/api/v1/article/byId/${id}`);
-        response.data.result.date = convertDate(response.data.result.date);
-        setArticle(response.data);
+        try{
+            const response = await axios.get(`http://localhost:30003/api/v1/article/byId/${id}`);
+            response.data.result.date = convertDate(response.data.result.date);
+            setArticle(response.data);
+        }catch (e) {
+            setArticle({type : "error"});
+        }
     },[]);
 
     useEffect(() => {
@@ -32,7 +37,12 @@ const ArticleId = () => {
                     <p data-testid="content">{article.result.content}</p>
                     <p data-testid="article-date">{article.result.date}</p>
                 </div>
-                : <p data-testid="loading-article">Loading ...</p>
+                : article.type === "error" ?
+                    <div data-testid="loading-error">
+                        <Error />
+                    </div>
+                :
+                <p data-testid="loading-article">Loading ...</p>
         }
         </>
     )
