@@ -45,5 +45,5 @@ describe('component ArticleItem', () => {
         expect(allTitle).toEqual(['Titre article 1', 'Titre article 2']);
         expect(allImg).toEqual(['Titre article 1', 'Titre article 2']);
         expect(allAbstract).toEqual(["Résumé article 1", "Résumé article 2"]);
-   })
+   });
 });
