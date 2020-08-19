@@ -2,7 +2,7 @@ import React from "react";
 
 const ArticleId = () => {
     return (
-        <h1>hello</h1>
+        <p data-testid="loading-article">Loading ...</p>
     )
 };
 
