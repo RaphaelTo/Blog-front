@@ -1,0 +1,45 @@
+/* this class is used in ArticlePage.js */
+.article {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.article-content{
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    background-color: #141417;
+    border: 2px solid black;
+    width: 70%;
+}
+
+.div-article-img {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.div-article-img > img {
+    width: 500px;
+    height: 300px;
+}
+
+.article-content h1 {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.article-content p {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.article-content .marked {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: flex-start;
+}
