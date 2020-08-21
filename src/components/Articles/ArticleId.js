@@ -42,8 +42,8 @@ const ArticleId = () => {
         {
             article.type === "success" ?
                 <div className="article-content" data-testid="article-content">
-                    <h1 data-testid="article-title">{article.result.title}</h1>
-                    <p data-testid="article-date">{article.result.date}</p>
+                    <h1 id="article-title" data-testid="article-title">{article.result.title}</h1>
+                    <p id="article-date" data-testid="article-date">Créer le {article.result.date}</p>
                     <div className="div-article-img">
                         <img data-testid="article-img" src={article.result.img} alt={article.result.title} />
                     </div>
