@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import {BrowserRouter, Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import './ArticleItem.css';
 
 const ArticleItem = ({items}) => {
@@ -16,11 +16,9 @@ const ArticleItem = ({items}) => {
     ));
 
     return (
-        <BrowserRouter>
             <div className="containt-article">
                 {article}
             </div>
-        </BrowserRouter>
     );
 
 };
