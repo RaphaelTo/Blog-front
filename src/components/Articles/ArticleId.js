@@ -1,6 +1,8 @@
 import React, {useEffect, useCallback, useState} from "react";
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import marked from 'marked';
+import DOMPurify from 'dompurify';
 import Error from "../Error/Error";
 
 const ArticleId = () => {
@@ -23,6 +25,12 @@ const ArticleId = () => {
         }
     },[id]);
 
+    const markedInDom = () => {
+        return {
+            __html : DOMPurify.sanitize(marked(article.result.content))
+        }
+    };
+
     useEffect(() => {
         getArticleById();
     },[getArticleById]);
@@ -34,7 +42,7 @@ const ArticleId = () => {
                 <div data-testid="article-content">
                     <h1 data-testid="article-title">{article.result.title}</h1>
                     <img data-testid="article-img" src={article.result.img} alt={article.result.title} />
-                    <p data-testid="content">{article.result.content}</p>
+                    <div data-testid="content" dangerouslySetInnerHTML={markedInDom()} />
                     <p data-testid="article-date">{article.result.date}</p>
                 </div>
                 : article.type === "error" ?
