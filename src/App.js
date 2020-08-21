@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import Home from "./pages";
+import ArticlePage from "./pages/ArticlePage";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
                 <Home/>
             </Route>
             <Route path="/article/:id">
+                <ArticlePage />
             </Route>
             <Route path="/about">
             </Route>
