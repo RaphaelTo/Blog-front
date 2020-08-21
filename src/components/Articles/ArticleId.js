@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import marked from 'marked';
 import DOMPurify from 'dompurify';
 import Error from "../Error/Error";
+import './ArticleId.css';
 
 const ArticleId = () => {
 
@@ -12,7 +13,8 @@ const ArticleId = () => {
 
     const convertDate = (date) => {
         const newDate = new Date(date);
-        return `${newDate.getDate()}-${newDate.getMonth() + 1}-${newDate.getFullYear()}`;
+        const month = newDate.getMonth() + 1 < 10 && newDate.getMonth() + 1 > 0 ? `0${newDate.getMonth() + 1}` : newDate.getMonth() + 1;
+        return `${newDate.getDate()}/${month}/${newDate.getFullYear()}`;
     };
 
     const getArticleById = useCallback(async () => {
@@ -39,11 +41,13 @@ const ArticleId = () => {
         <>
         {
             article.type === "success" ?
-                <div data-testid="article-content">
+                <div className="article-content" data-testid="article-content">
                     <h1 data-testid="article-title">{article.result.title}</h1>
-                    <img data-testid="article-img" src={article.result.img} alt={article.result.title} />
-                    <div data-testid="content" dangerouslySetInnerHTML={markedInDom()} />
                     <p data-testid="article-date">{article.result.date}</p>
+                    <div className="div-article-img">
+                        <img data-testid="article-img" src={article.result.img} alt={article.result.title} />
+                    </div>
+                    <div className="marked" data-testid="content" dangerouslySetInnerHTML={markedInDom()} />
                 </div>
                 : article.type === "error" ?
                     <div data-testid="loading-error">
