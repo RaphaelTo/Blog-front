@@ -21,7 +21,7 @@ const ArticleId = () => {
         }catch (e) {
             setArticle({type : "error"});
         }
-    },[]);
+    },[id]);
 
     useEffect(() => {
         getArticleById();
